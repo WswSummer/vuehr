@@ -25,9 +25,9 @@ axios.interceptors.response.use(success => {
     return;
 })
 
-let base = ''
 // 请求的封装
 // post请求以key-value形式传参
+let base = '';
 export const postKeyValueRequest = (url, params) => {
     return axios({
         method: 'post',
@@ -38,11 +38,47 @@ export const postKeyValueRequest = (url, params) => {
             for (let i in data) {
                 ret += encodeURIComponent(i) + '=' + encodeURIComponent(data[i]) + '&';
             }
-            console.log(ret);
+            //console.log(ret);
             return ret;
         }],
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         }
+    })
+}
+
+// post请求以Json形式传参
+export const postRequest = (url, params) => {
+    return axios({
+        method: 'post',
+        url: `${base}${url}`,
+        data: params
+    })
+}
+
+// get请求
+export const getRequest = (url, params) => {
+    return axios({
+        method: 'get',
+        url: `${base}${url}`,
+        data: params
+    })
+}
+
+// put请求
+export const putRequest = (url, params) => {
+    return axios({
+        method: 'put',
+        url: `${base}${url}`,
+        data: params
+    })
+}
+
+// delete请求
+export const deleteRequest = (url, params) => {
+    return axios({
+        method: 'delete',
+        url: `${base}${url}`,
+        data: params
     })
 }
