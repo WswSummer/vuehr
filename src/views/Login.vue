@@ -47,10 +47,10 @@
                             if (response) {
                                 //alert(JSON.stringify(response));
                                 //保存用户信息
-                                window.sessionStorage.setItem("user", JSON.stringify(response.obj));
+                                window.sessionStorage.setItem("user", JSON.stringify(response.object));
                                 //登录成功后跳转到HOME页
                                 //replace方法和push方法
-                                this.$router.replace("/Home");
+                                this.$router.replace("/home");
                             }
                         });
                     } else {
